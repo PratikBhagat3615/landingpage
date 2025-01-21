@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Precise Trading</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: black;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: black;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            max-width: 200px;
+            height: auto;
+            margin-right: 40px; /* Add spacing between logo and text */
+        }
+
+        .header-text {
+            text-align: center;
+            flex-grow: 1; /* Ensures the text is centered even if the logo takes space */
+        }
+
+        .header-text h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header-text p {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* Video Section */
+        .video-section {
+            position: relative;
+            height: 500px;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Overlay Layer */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+            z-index: 0;
+        }
+
+        /* Overlay Text */
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fefefd; /* Gold color for emphasis */
+            font-family: 'Poppins', sans-serif;
+            font-size: 50px; /* Large size */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px; /* Add spacing between letters */
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* Strong text shadow */
+            opacity: 1;
+        }
+
+        /* Form Section */
+        .form-section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0;
+            padding: 40px 0;
+            gap: 20px;
+        }
+
+        /* Contact Us Form (White background, black text) */
+        .form-large {
+            flex: 1;
+            padding: 40px;
+            background-color: white;
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-large h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-large label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-large input,
+        .form-large textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #f4f4f4;
+            color: black;
+        }
+
+        .form-large button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-large button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Limited Time Offer Form (Black background, white text) */
+        .form-small {
+            flex: 1;
+            padding: 40px;
+            color: white;
+            background-color: black;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-small h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffcc00; /* A bright, eye-catching color */
+            font-family: 'Roboto', sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to make it pop */
+        }
+
+        .form-small ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .form-small li {
+            margin: 12px 0;
+            padding: 20px;
+            background: #333;
+            color: white;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover Effect with Flash */
+        .form-small li:hover {
+            transform: scale(1.05);
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 1024px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            .form-large h2 {
+                font-size: 24px;
+            }
+
+            .form-small h2 {
+                font-size: 28px;
+            }
+
+            .form-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-large,
+            .form-small {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .form-large input,
+            .form-large textarea,
+            .form-large button {
+                font-size: 14px;
+            }
+
+            .form-small li {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            .form-large h2,
+            .form-small h2 {
+                font-size: 20px;
+            }
+
+            .form-large,
+            .form-small {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .form-large input,
+            .form-large textarea,
+            .form-large button {
+                font-size: 16px;
+            }
+
+            .form-small li {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .form-large h2,
+            .form-small h2 {
+                font-size: 18px;
+            }
+
+            .form-large,
+            .form-small {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .form-large input,
+            .form-large textarea,
+            .form-large button {
+                font-size: 14px;
+            }
+
+            .form-small li {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <img src="./logo-removebg-preview.png" alt="Precise Trading Logo" class="header-logo">
+        <div class="header-text">
+            <!-- <h1>Precise Trading</h1>
+            <p>Contact Precise Trading and Explore Our Limited Time Offers</p> -->
+        </div>
+    </div>
+</header>
+
+<!-- Video Background Section -->
+<div class="video-section">
+    <video class="video-background" autoplay muted loop>
+        <source src="./7580278-uhd_4096_2160_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Overlay Layer -->
+    <div class="video-overlay"></div>
+    <!-- Overlay Text -->
+    <div class="overlay-text">
+        <h1>Precise Trading</h1>
+    </div>
+</div>
+
+
+
+<!-- Forms Section -->
+<div class="form-section">
+    <!-- Contact Us Form (White background, black text) -->
+    <div class="form-large">
+        <h2>Contact Us</h2>
+        <form action="#" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id" placeholder="Your ID" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+            <label for="experience">Trading Experience</label>
+            <textarea id="experience" name="experience" rows="4" placeholder="Describe Your Trading Experience"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Limited Time Offer Form (Black background, white text) -->
+    <div class="form-small">
+        <h2>Limited Time Offer</h2>
+        <ul>
+            <li>Real-time trading signals with documented 85%+ accuracy</li>
+            <li>Personal mentoring sessions with professional traders</li>
+            <li>Proprietary AI-driven trading algorithms</li>
+            <li>Advanced risk management system</li>
+            <li>Professional technical analysis suite</li>
+            <li>24/7 dedicated trading support</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Precise Trading. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
